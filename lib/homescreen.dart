@@ -118,8 +118,8 @@ class _HomescreenState extends State<Homescreen> {
                               onPressed: () async {
                                 try {
                                   await AuthService.deleteSet(id: topic["id"]);
-                                  filteredTopics.removeAt(index);
-                                  loadSets();
+                                  await AuthService.deleteSet(id:topic["id"]);
+                                  await loadSets();
                                   if (!mounted) return;
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
